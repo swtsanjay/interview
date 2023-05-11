@@ -121,4 +121,10 @@ module.exports = {
 		message: 'Invalid token!. Please login again',
 		code: HttpStatus.StatusCodes.UNAUTHORIZED
 	},
+
+	unprocessable: {
+		name: "Unprocessable Entity",
+		message: 'Unprocessable Entity',
+		code: HttpStatus.StatusCodes.UNPROCESSABLE_ENTITY
+	},
 }

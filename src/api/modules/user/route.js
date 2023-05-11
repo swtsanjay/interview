@@ -9,7 +9,7 @@ const router = Router({ mergeParams: true });
 router.post('/signup', validation.signup, checkIfEmailAlreadyExists({ foundThrow: true }), checkIfUserNameAlreadyExists({ foundThrow: true }), controller.signup);
 router.post('/login', validation.login, checkIfEmailAlreadyExists({ notFoundThrow: true }), matchPassword({ notMatchThrow: true }), controller.login);
 router.get('/details', validateToken, controller.getProfileData);
-router.post('/update', validateToken, checkIfEmailAlreadyExists({ foundThrow: true }), checkIfUserNameAlreadyExists({ foundThrow: true }), controller.updateProfile);
-router.post('/update-password', validateToken, validation.changePassword, matchPassword({ notMatchThrow: true, message: Message.currentPasswordWrong }), controller.updatePassword);
+router.put('/update', validateToken, checkIfEmailAlreadyExists({ foundThrow: true }), checkIfUserNameAlreadyExists({ foundThrow: true }), controller.updateProfile);
+router.put('/update-password', validateToken, validation.changePassword, matchPassword({ notMatchThrow: true, message: Message.currentPasswordWrong }), controller.updatePassword);
 
 module.exports = router;

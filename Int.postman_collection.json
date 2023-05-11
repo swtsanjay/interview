@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "4463d645-442b-405f-a1b3-1b32e62c04cd",
+		"name": "Int",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13583899"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Sanjay\",\n    \"lastName\": \"Yadav\",\n    \"userName\": \"sanjaykumar\",\n    \"email\": \"sanjayyadav@test.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uel}}signup",
+					"host": [
+						"{{base_uel}}signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"sanjayyadav@test.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uel}}login",
+					"host": [
+						"{{base_uel}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Sanjay Kumar Yadav\",\n    \"lastName\": \"Yadav\",\n    \"userName\": \"sanjaykumar\",\n    \"email\": \"sanjayyadav@test.com\",\n    \"password\": \"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uel}}update",
+					"host": [
+						"{{base_uel}}update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Password",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"12345\",\n    \"newPassword\": \"123456\",\n    \"confirmNewPassword\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_uel}}update-password",
+					"host": [
+						"{{base_uel}}update-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_uel}}details",
+					"host": [
+						"{{base_uel}}details"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDViZjlkZTA3YTgwZWEzYWRmZTc5YTgiLCJleHAiOjYwMDAxNjgzNzk0MTIxLCJpYXQiOjE2ODM3OTQxMjF9.TEJerW4pYmFtAsEOUy23f_8YIV0Y5BV4-Z8zxAL27Y8",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_uel",
+			"value": "localhost:5000/user/",
+			"type": "string"
+		}
+	]
+}

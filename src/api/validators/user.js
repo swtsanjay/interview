@@ -1,5 +1,4 @@
 const { check } = require('express-validator');
-const bcrypt = require('bcryptjs');
 const { formValidation } = require('../middlewares/others');
 
 const validations = {
@@ -44,12 +43,13 @@ const validations = {
             .notEmpty().withMessage("New password is required"),
 
         check('confirmNewPassword')
-            .notEmpty().withMessage("Confirm new password is required"),
-            // .custom((value, {req})=>{
-            //     if(req.body.newPassword !== req.body.confirmNewPassword){
-            //         throw new Error('Both new password does not match');
-            //     }
-            // }),
+            .notEmpty().withMessage("Confirm new password is required")
+            .custom((_, {req})=>{
+                if(req.body.newPassword !== req.body.confirmNewPassword){
+                    throw new Error('Both new password does not match');
+                }
+                return true;
+            }),
 
         formValidation
     ],

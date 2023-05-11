@@ -66,7 +66,6 @@ class Response {
 
 		if (_.isObjectLike(message)) {
 			resObj.message = message.message || 'failed';
-			resObj.errors = [{msg: resObj.message }];
 			resObj.code = message.code || HttpStatus.StatusCodes.NOT_FOUND;
 			resObj.resCode = message.resCode || resObj.code;
 			if (!_.isEmpty(message.extra) && _.isObjectLike(message.extra)) {
@@ -74,7 +73,6 @@ class Response {
 			}
 		} else {
 			resObj.message = message || 'failed';
-			resObj.errors = [{msg: resObj.message }];
 			resObj.code = code || HttpStatus.StatusCodes.NOT_FOUND;
 			resObj.resCode = resCode || resObj.code;
 			if (!_.isEmpty(extra) && _.isObjectLike(extra)) {
