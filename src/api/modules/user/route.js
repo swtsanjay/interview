@@ -5,10 +5,11 @@ const { validateToken, checkIfEmailAlreadyExists, checkIfUserNameAlreadyExists, 
 const Message = require('../../../utilities/Message');
 
 const router = Router({ mergeParams: true });
-
+/* Public Routes */
 router.post('/signup', validation.signup, checkIfEmailAlreadyExists({ foundThrow: true }), checkIfUserNameAlreadyExists({ foundThrow: true }), controller.signup);
 router.post('/login', validation.login, checkIfEmailAlreadyExists({ notFoundThrow: true }), matchPassword({ notMatchThrow: true }), controller.login);
 
+/* Private Routes */
 router.use(validateToken);
 router.get('/details', controller.getProfileData);
 router.put('/update', checkIfEmailAlreadyExists({ foundThrow: true }), checkIfUserNameAlreadyExists({ foundThrow: true }), controller.updateProfile);
